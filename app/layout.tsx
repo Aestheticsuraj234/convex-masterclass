@@ -4,6 +4,8 @@ import "./globals.css";
 
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server"
 import ConvexClientProvider from "@/components/convex-client-provider";
+import Navbar from "@/components/navbar";
+import { Toaster } from "@/components/ui/sonner";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,9 +33,10 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-[calc(100vh-2rem)] flex flex-col gap-4`}
         >
           <ConvexClientProvider>
-            <main className="px-2 md:px-4 grow flex felx-col">
-
+            <main className="px-2 md:px-4 grow flex flex-col">
+            <Navbar/>
               {children}
+              <Toaster/>
             </main>
           </ConvexClientProvider>
         </body>
